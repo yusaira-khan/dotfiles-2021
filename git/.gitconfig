@@ -1,0 +1,35 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Yusaira Khan
+	email = yusairak@nulogy.com
+[push]
+	default = simple
+[remote "origin"]
+	push = HEAD
+[branch]
+	autosetupmerge = true
+[color]
+	branch = auto
+	diff = auto
+	ui = true
+[core]
+	commentchar = $
+[fetch]
+	prune = true
+[alias]
+	br = branch
+	co = commit
+	cm = commit
+	ch = checkout
+	cho = checkout
+	st = status
+	p = push
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	pnew = "!git push -u origin $(git branch-name)"
+
+
+
