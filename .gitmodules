@@ -1,0 +1,3 @@
+[submodule "intellij/.intellimacs"]
+	path = intellij/.intellimacs
+	url = https://github.com/MarcoIeni/intellimacs
