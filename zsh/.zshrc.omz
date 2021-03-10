@@ -18,7 +18,7 @@ DISABLE_AUTO_UPDATE="true"
 DISABLE_UPDATE_PROMPT="true"
 
 
-plugins=(git asdf aws autojump vi-mode direnv golang)
+plugins=(asdf aws autojump vi-mode direnv golang)
 source $ZSH/oh-my-zsh.sh
 
 #all relevant user env variables in this file
