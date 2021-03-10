@@ -22,14 +22,25 @@
 	prune = true
 [alias]
 	br = branch
-	co = commit
-	cm = commit
+	co = "commit -v"
+	cm = "commit -v"
 	ch = checkout
 	cho = checkout
+	chb = "checkout -b"
 	st = status
-	p = push
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	pnew = "!git push -u origin $(git branch-name)"
+	rhh = "reset --hard"
+	rb = "rebase -i"
+	pl = "pull -- rebase"
+	a = add
+	ah = "add ."
+	cp = cherry-pick
+	sh = show
+	rf = reflog
+
+
+
 
 
 
