@@ -20,25 +20,26 @@
 	commentchar = $
 [fetch]
 	prune = true
+[pull]
+	ff = only
 [alias]
+	a = add
+	ah = "add ."
 	br = branch
 	co = "commit -v"
-	cm = "commit -v"
+    cma = "commit -am"
+    cm = "commit -m"
+    coan = "commit --amend --no-edit"
+    coa = "commit --amend -v"
 	ch = checkout
-	cho = checkout
 	chb = "checkout -b"
 	st = status
+	sh = show
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	pnew = "!git push -u origin $(git branch-name)"
 	rhh = "reset --hard"
 	rb = "rebase -i"
 	plr = "pull --rebase"
 	pl = "pull"
-	a = add
-	ah = "add ."
 	cp = cherry-pick
-	sh = show
 	rf = reflog
-
-[pull]
-	ff = only
