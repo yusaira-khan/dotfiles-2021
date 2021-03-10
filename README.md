@@ -5,6 +5,7 @@
 stow zsh
 stow intellij
 stow git
+stow byobu
 ```
 
 ## to initialize
