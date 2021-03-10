@@ -5,14 +5,19 @@ export PATH="${ASDF_DATA_DIR}/shims:$PATH"
 export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 
 
-#zsh aliases/usability config
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh/zsh-you-should-use/you-should-use.plugin.zsh
-
+#zsh aliases
+#stuff from grml
 source $HOME/.grml_utilities/primary.zsh
 source $HOME/.grml_utilities/simple_extract.zsh
 source $HOME/.grml_utilities/sll.zsh
+#aliases that for helping, separate from omz
+alias g="command git"
+alias sc="source $HOME/.zshrc"
+alias brewin="command brew install"
+alias brewincask="command brew install --cask"
 
-#installed utility utilization
+
+
+#installed utility initialization
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 eval "$(direnv hook zsh)"

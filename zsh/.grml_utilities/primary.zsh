@@ -34,31 +34,31 @@ function cl () {
 
 
 
-#a1# List files with colors (\kbd{ls \ldots})
+#List files with colors ls [...])
 alias ls="command ls ${ls_options:+${ls_options[*]}}"
-#a1# List all files, with colors (\kbd{ls -la \ldots})
+# List all files, with colors ls [...])
 alias la="command ls -la ${ls_options:+${ls_options[*]}}"
-#a1# List files with long colored list, without dotfiles (\kbd{ls -l \ldots})
+#List files with long colored list, without dotfiles ls -l [...])
 alias ll="command ls -l ${ls_options:+${ls_options[*]}}"
-#a1# List files with long colored list, human readable sizes (\kbd{ls -hAl \ldots})
+# List files with long colored list, human readable sizes ls -hAl [...])
 alias lh="command ls -hAl ${ls_options:+${ls_options[*]}}"
-#a1# List files with long colored list, append qualifier to filenames (\kbd{ls -l \ldots})\\&\quad(\kbd{/} for directories, \kbd{@} for symlinks ...)
+# List files with long colored list, append qualifier to filenames ls -l [...]. / for directories, @ for symlinks
 alias l="command ls -l ${ls_options:+${ls_options[*]}}"
-#a2# Only show dot-directories
+# Only show dot-directories
 alias lad='command ls -d .*(/)'
-#a2# Only show dot-files
+# Only show dot-files
 alias lsa='command ls -a .*(.)'
-#a2# Display the ten biggest files
+# Display the ten biggest files
 alias lsbig="command ls -flh *(.OL[1,10])"
 alias lsnice="command ls -lSrah"
-#a2# Display the ten newest files
+# Display the ten newest files
 alias lsnew="command ls -rtlh *(D.om[1,10])"
-#a2# Display the ten oldest files
+# Display the ten oldest files
 alias lsold="command ls -rtlh *(D.Om[1,10])"
-#a2# Display the ten smallest files
+# Display the ten smallest files
 alias lssmall="command ls -Srl *(.oL[1,10])"
 
-#f5# Create Directory and \kbd{cd} to it
+# Create Directory and cd to it
 function mkcd () {
     if (( ARGC != 1 )); then
         printf 'usage: mkcd <new-directory>\n'
@@ -72,19 +72,19 @@ function mkcd () {
     builtin cd "$1"
 }
 
-#f5# Create temporary directory and \kbd{cd} to it
+# Create temporary directory and cd to it
 function cdt () {
     builtin cd "$(mktemp -d)"
     builtin pwd
 }
 
-#f5# List files which have been accessed within the last {\it n} days, {\it n} defaults to 1
+#List files which have been accessed within the last  n days,  n defaults to 1
 function accessed () {
     emulate -L zsh
     print -l -- *(a-${1:-1})
 }
 
-#f5# List files which have been changed within the last {\it n} days, {\it n} defaults to 1
+# List files which have been changed within the last  n days, n defaults to 1
 function changed () {
     emulate -L zsh
     print -l -- *(c-${1:-1})
