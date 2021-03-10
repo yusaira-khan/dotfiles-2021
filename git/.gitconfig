@@ -1,45 +1,53 @@
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [user]
-	name = Yusaira Khan
-	email = yusairak@nulogy.com
+    name = Yusaira Khan
+    email = yusairak@nulogy.com
 [push]
-	default = simple
+    default = simple
 [remote "origin"]
-	push = HEAD
+    push = HEAD
 [branch]
-	autosetupmerge = true
+    autosetupmerge = true
 [color]
-	branch = auto
-	diff = auto
-	ui = true
+    branch = auto
+    diff = auto
+    ui = true
 [core]
-	commentchar = $
+    commentchar = $
 [fetch]
-	prune = true
+    prune = true
 [pull]
-	ff = only
+    ff = only
 [alias]
-	a = add
-	ah = "add ."
-	br = branch
-	co = "commit -v"
-    cma = "commit -am"
-    cm = "commit -m"
-    coan = "commit --amend --no-edit"
-    coa = "commit --amend -v"
-	ch = checkout
-	chb = "checkout -b"
-	st = status
-	sh = show
-	branch-name = "!git rev-parse --abbrev-ref HEAD"
-	pnew = "!git push -u origin $(git branch-name)"
-	rhh = "reset --hard"
-	rb = "rebase -i"
-	plr = "pull --rebase"
-	pl = "pull"
-	cp = cherry-pick
-	rf = reflog
+    a = add
+    ah = "add ."
+    co = "commit -v"
+    coma = "commit -am"
+    com = "commit -m"
+    fixupadd = "commit -a --amend --no-edit"
+    fixup = "commit --amend --no-edit"
+    reword = "commit --amend -v"
+    amendadd = "commit -av --amend"
+    amend = "commit -v --amend"
+    cof = "fixup"
+    cofa = "fixupadd"
+    cor = "reword"
+    coaa = "amendadd"
+    st = status
+    sh = show
+	p = push
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    pnew = "!git push -u origin $(git branch-name)"
+    br = branch
+    ch = checkout
+    chb = "checkout -b"
+    rhh = "reset --hard"
+    rb = "rebase -i"
+    plr = "pull --rebase"
+    pl = "pull"
+    cp = cherry-pick
+    rf = reflog
