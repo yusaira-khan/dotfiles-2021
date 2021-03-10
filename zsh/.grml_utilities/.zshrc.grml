@@ -1253,7 +1253,7 @@ function inplaceMkDirs () {
         zle end-of-line
     fi
 }
-
+'
 zle -N inplaceMkDirs
 
 #v1# set number of lines to display per page
@@ -2237,6 +2237,7 @@ grml_prompt_token_default=(
     jobs              '[%j running job(s)] '
     newline           $'\n'
     path              '%40<..<%~%<< '
+    path              '%40<..<%~%<< '
     percent           '%# '
     rc                '%(?..%? )'
     rc-always         '%?'
@@ -2557,7 +2558,7 @@ is41 && setopt transient_rprompt
 # Terminal-title wizardry
 
 function ESC_print () {
-    info_print $'\ek' $'\e\\' "$@"
+    info_print $'\ek' \$'\e\\' "$@"
 }
 function set_title () {
     info_print  $'\e]0;' $'\a' "$@"
