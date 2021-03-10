@@ -11,10 +11,7 @@ bind p paste-buffer
 bind-key -T copy-mode-vi 'v' send-keys -X begin-selection
 bind-key -T copy-mode-vi 'y' send-keys -X copy-selection-and-cancel
 
-
 bind-key -n ^T command-prompt -p "(rename-window) " "rename-window '%%'"
 
-
-
-
-
+bind-key  ^| split-window -h -c "#{pane_current_path}"
+bind-key  ^- split-window -v -c "#{pane_current_path}"
