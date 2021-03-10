@@ -1,5 +1,4 @@
 typeset -ga ls_options
-typeset -ga grep_options
 ls_options+=( -G )
 ls_options+=( -v )
 export CLICOLOR=1
@@ -15,18 +14,6 @@ setopt interactivecomments
 setopt print_exit_value
 
 
-function xsource () {
-    if (( ${#argv} < 1 )) ; then
-        printf 'usage: xsource FILE(s)...\n' >&2
-        return 1
-    fi
-
-    while (( ${#argv} > 0 )) ; do
-        [[ -r "$1" ]] && source "$1"
-        shift
-    done
-    return 0
-}
 # grep for running process, like: 'any vim'
 function any () {
     emulate -L zsh
@@ -71,9 +58,6 @@ alias lsold="command ls -rtlh *(D.Om[1,10])"
 #a2# Display the ten smallest files
 alias lssmall="command ls -Srl *(.oL[1,10])"
 
-alias ...='cd ../../'
-
-
 #f5# Create Directory and \kbd{cd} to it
 function mkcd () {
     if (( ARGC != 1 )); then
@@ -105,16 +89,6 @@ function changed () {
     emulate -L zsh
     print -l -- *(c-${1:-1})
 }
-
-# use colors when GNU grep with color-support
-if (( $#grep_options > 0 )); then
-    o=${grep_options:+"${grep_options[*]}"}
-    #a2# Execute \kbd{grep -{}-color=auto}
-    alias grep='grep '$o
-    alias egrep='egrep '$o
-    unset o
-fi
-
 
 
 PS2='\`%_> '

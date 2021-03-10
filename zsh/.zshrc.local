@@ -2,11 +2,11 @@ export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
 ASDF_DATA_DIR=$HOME/.asdf
 export PATH="${ASDF_DATA_DIR}/shims:$PATH"
 export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-you-should-use/you-should-use.plugin.zsh
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/zsh-you-should-use/you-should-use.plugin.zsh
+
+source $HOME/.grml_utilities/primary.zsh
+source $HOME/.grml_utilities/simple_extract.zsh
+source $HOME/.grml_utilities/sll.zsh
+
 eval "$(direnv hook zsh)"
-
-
-
-bindkey -v
-
