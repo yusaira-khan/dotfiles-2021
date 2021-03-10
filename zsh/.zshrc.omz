@@ -20,6 +20,10 @@ DISABLE_UPDATE_PROMPT="true"
 
 plugins=(asdf aws autojump vi-mode direnv golang nulogy ruby bundler you-should-use zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
+export YSU_MESSAGE_POSITION="after"
 
 #all relevant user env variables in this file
 source $HOME/.zshrc.local
+#installed utility initialization after all the zshrc local zshrc stuff is done
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+eval "$(direnv hook zsh)"

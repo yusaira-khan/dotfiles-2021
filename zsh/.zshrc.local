@@ -15,9 +15,3 @@ alias g="command git"
 alias sc="source $HOME/.zshrc"
 alias brewin="command brew install"
 alias brewincask="command brew install --cask"
-
-
-
-#installed utility initialization
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-eval "$(direnv hook zsh)"
