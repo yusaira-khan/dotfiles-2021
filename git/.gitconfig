@@ -16,8 +16,6 @@
     branch = auto
     diff = auto
     ui = true
-[core]
-    commentchar = $
 [fetch]
     prune = true
 [pull]
