@@ -45,9 +45,9 @@ alias lh="command ls -hAl ${ls_options:+${ls_options[*]}}"
 # List files with long colored list, append qualifier to filenames ls -l [...]. / for directories, @ for symlinks
 alias l="command ls -l ${ls_options:+${ls_options[*]}}"
 # Only show dot-directories
-alias lad='command ls -d .*(/)'
+alias lsdotdir='command ls -d .*(/)'
 # Only show dot-files
-alias lsa='command ls -a .*(.)'
+alias lsdotfiles='command ls -a .*(.)'
 # Display the ten biggest files
 alias lsbig="command ls -flh *(.OL[1,10])"
 alias lsnice="command ls -lSrah"
