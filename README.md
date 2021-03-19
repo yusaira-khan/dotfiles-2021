@@ -2,10 +2,7 @@
 
 ##nulogy specific setup
 ```shell
-stow zsh
-stow intellij
-stow git
-stow byobu
+stow asdf-global byobu git intellij irb vim zsh
 ```
 
 ## to initialize
