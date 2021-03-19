@@ -17,6 +17,7 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment the following line to automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
 
+export FZF_BASE=/usr/local/bin
 
 plugins=(asdf aws autojump vi-mode direnv golang nulogy ruby bundler you-should-use zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
