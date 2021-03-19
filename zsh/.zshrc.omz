@@ -28,3 +28,4 @@ source $HOME/.zshrc.local
 #installed utility initialization after all the zshrc local zshrc stuff is done
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 eval "$(direnv hook zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
