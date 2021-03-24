@@ -1,3 +1,6 @@
 [submodule "intellij/.intellimacs"]
 	path = intellij/.intellimacs
 	url = https://github.com/MarcoIeni/intellimacs
+[submodule "zsh/.zsh-utilities/chunkys-dotfiles"]
+	path = zsh/.zsh-utilities/chunkys-dotfiles
+	url = git@github.com:jchunky/dotfiles.git
