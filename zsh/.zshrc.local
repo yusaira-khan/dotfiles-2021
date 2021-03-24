@@ -22,7 +22,8 @@ alias gwip="git add -A; git rm \$(git ls-files --deleted) 2> /dev/null; git comm
 
 #utilites for ruby playingaround
 function seed_ruby() {
-    cp ~/.zsh-utilities/chunkys-dotfiles/.seed_ruby/* .
+    cp ~/.zsh-utilities/chunkys-dotfiles/.bin/.seed_ruby/* .
+    cp ~/.zsh-utilities/chunkys-dotfiles/.bin/.seed_ruby/.* .
     cp -r ~/.tool-versions .
     bundle
 }
