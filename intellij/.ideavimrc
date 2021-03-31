@@ -3,6 +3,7 @@ source ~/.intellimacs/spacemacs.vim
 source ~/.intellimacs/extra.vim
 source ~/.intellimacs/major.vim
 source ~/.intellimacs/hybrid.vim
+source ~/.intellimacs/whichkey.vim
 
 " My own vim commands
 nnoremap Y y$
@@ -14,3 +15,11 @@ vmap , <leader>m
 " Add/edit actions
 nnoremap <leader>gl    :action Vcs.Show.Log<CR>
 vnoremap <leader>gl    :action Vcs.Show.Log<CR>
+
+nnoremap <leader>we    :action FocusEditor<CR>
+vnoremap <leader>we    :action FocusEditor<CR>
+nnoremap <leader>we    :action Terminal.SwitchFocusToEditor<CR>
+vnoremap <leader>we    :action Terminal.SwitchFocusToEditor<CR>
+
+nnoremap <leader>wt    :action ActivateTerminalToolWindow<CR>
+vnoremap <leader>wt    :action ActivateTerminalToolWindow<CR>
