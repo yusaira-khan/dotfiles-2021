@@ -1,17 +1,21 @@
-#Stow-ing and versioning dotfiles
+# Stow-ing and versioning dotfiles
 
-##nulogy specific setup
+## nulogy specific setup
 ```shell
-stow asdf-global byobu git intellij irb vim zsh
+stow asdf-global byobu git  git-common intellij irb vim zsh
+```
+
+## home setup
+```shell
+stow asdf-global byobu git  git-common intellij irb vim zsh
 ```
 
 ## to initialize
 ```shell
-mv ~/dir ~/dotfiles/dir
-cd ~/dotfiles
-stow dir
+mv ~/.stuff ~/.dotfiles/<organized-dir>/.stuff
+cd ~/.dotfiles
+stow <organized-dir>
 ```
 
-##todo
-- use at home
+## todo
 - regularly update intellimacs
