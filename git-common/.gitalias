@@ -1,0 +1,48 @@
+[push]
+    default = simple
+[remote "origin"]
+    push = HEAD
+[branch]
+    autosetupmerge = true
+[color]
+    branch = auto
+    diff = auto
+    ui = true
+[fetch]
+    prune = true
+[pull]
+    ff = only
+[alias]
+    a = add
+    ah = "add ."
+    co = "commit -v"
+    coma = "commit -am"
+    com = "commit -m"
+    fixupadd = "commit -a --amend --no-edit"
+    fixup = "commit --amend --no-edit"
+    reword = "commit --amend -v"
+    amendadd = "commit -av --amend"
+    amend = "commit -v --amend"
+    cof = "fixup"
+    cofa = "fixupadd"
+    cor = "reword"
+    coaa = "amendadd"
+    st = status
+    sh = show
+	pp = push
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    pnew = "!git push -u origin $(git branch-name)"
+    forcepush = "push --force-with-lease"
+    ppf = "forcepush"
+    ppn = "pnew"
+    br = branch
+    ch = checkout
+    chb = "checkout -b"
+    rhh = "reset --hard"
+    rb = "rebase -i"
+    plr = "pull --rebase"
+    pl = "pull"
+    cp = cherry-pick
+    rf = reflog
+    lgnormal = log
+	lgpretty = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
