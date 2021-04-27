@@ -11,38 +11,38 @@
 [fetch]
     prune = true
 [pull]
-    ff = only
+	rebase = true
 [alias]
     a = add
     ah = "add ."
     co = "commit -v"
     coma = "commit -am"
     com = "commit -m"
-    fixupadd = "commit -a --amend --no-edit"
     fixup = "commit --amend --no-edit"
-    reword = "commit --amend -v"
-    amendadd = "commit -av --amend"
+    fixup-add = "fixup -a"
     amend = "commit -v --amend"
+    amend-add = "amend -a"
+    reword = "amend"
     cof = "fixup"
-    cofa = "fixupadd"
+    cofa = "fixup-add"
     cor = "reword"
-    coaa = "amendadd"
+    coaa = "amend-add"
     st = status
     sh = show
 	pp = push
     branch-name = "!git rev-parse --abbrev-ref HEAD"
-    pnew = "!git push -u origin $(git branch-name)"
+    newpush = "!git push -u origin $(git branch-name)"
     forcepush = "push --force-with-lease"
     ppf = "forcepush"
-    ppn = "pnew"
+    ppn = "newpush"
     br = branch
     ch = checkout
     chb = "checkout -b"
     rhh = "reset --hard"
     rb = "rebase -i"
     plr = "pull --rebase"
-    pl = "pull"
-    cp = cherry-pick
+    plff = "pull --ff-only"
+    crp = cherry-pick
     rf = reflog
     lgnormal = log
 	lgpretty = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
