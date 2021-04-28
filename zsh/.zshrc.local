@@ -20,8 +20,8 @@ alias sc="source $HOME/.zshrc"
 alias brewin="command brew install"
 alias brewincask="command brew install --cask"
 alias whereare="builtin whence -sav"
-alias em="emacs -nw ."
 alias whichis="builtin whence -sv"
+alias em="emacs -nw ."
 
 #utilites for ruby playingaround
 function seed_ruby() {
@@ -30,8 +30,3 @@ function seed_ruby() {
     cp -r ~/.tool-versions .
     bundle
 }
-mobtime () {
-        open "https://mobtime.herokuapp.com/$(git branch-name)?"
-}
-
-

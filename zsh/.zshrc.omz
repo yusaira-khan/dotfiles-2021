@@ -19,7 +19,8 @@ DISABLE_UPDATE_PROMPT="true"
 
 export FZF_BASE=/usr/local/bin
 
-plugins=(asdf git autojump vi-mode direnv golang nulogy you-should-use zsh-autosuggestions)
+plugins=(asdf git autojump direnv golang nulogy you-should-use zsh-autosuggestions copyfile
+copydir copybuffer last-working-dir)
 source $ZSH/oh-my-zsh.sh
 export YSU_MESSAGE_POSITION="after"
 
