@@ -64,7 +64,6 @@
     ppwf- = !git wip && git forcepush
     chw- = !git checkout $1 && git plw!
     chm- = !git checkout $(git default-branch) && git st-
-    sh = !ps && echo $$
     wip = "!w() { \
       git add -A; \
       git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; \
