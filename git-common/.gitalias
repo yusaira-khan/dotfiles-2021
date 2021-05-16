@@ -59,10 +59,17 @@
     st- = !git fetch && git status
     rh- = reset --hard
     rho- = !git reset --hard origin/$(git branch-name)
-    unwip = !gunwip
-    wip = !gwip
     cho- = !git fetch && git checkout $1 && git status
-    plw- = !git pull --rebase && gunwip && git status
-    ppwf- = !gwip && git forcepush
+    plw- = !git pull --rebase && git unwip && git status
+    ppwf- = !git wip && git forcepush
     chw- = !git checkout $1 && git plw!
     chm- = !git checkout $(git default-branch) && git st-
+    sh = !ps && echo $$
+    wip = "!w() { \
+      git add -A; \
+      git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; \
+     }; w"
+    unwip = "!u(){\
+    git log -n 1 | grep -q -c wip && git backone ; \
+    }; u"
+    backone = reset HEAD~1
