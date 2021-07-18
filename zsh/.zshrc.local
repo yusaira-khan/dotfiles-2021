@@ -18,7 +18,7 @@ source $HOME/.grml_utilities/sll.zsh
 alias g="command git"
 alias sc="source $HOME/.zshrc"
 alias brewin="command brew install"
-alias brewincask="command brew install --cask"
+alias brewun="command brew uninstall"
 alias whereare="builtin whence -sav"
 alias whichis="builtin whence -sv"
 alias em="emacs -nw ."
