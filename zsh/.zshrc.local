@@ -5,6 +5,8 @@ export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 export PATH="$PATH"
 export PATH=$HOME_PATH:$PATH
 export NAME="Yusaira Khan"
+export ASDF_DIR=$(brew --prefix asdf)
+source $(brew --prefix asdf)/asdf.sh
 
 
 #zsh aliases
