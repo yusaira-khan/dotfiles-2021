@@ -1,4 +1,3 @@
-.pryrc
 # Using these pry gems -- copy to your Gemfile
 # group :development, :test do
 #   gem 'awesome_print' # pretty print ruby objects
