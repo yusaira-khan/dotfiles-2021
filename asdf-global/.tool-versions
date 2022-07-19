@@ -1,5 +1,6 @@
 # synchronize with Dockerfile:
-ruby 3.0.0
+ruby 3.1.0
 python 3.9.2
 golang 1.14
 terraform 0.12.29
+nodejs 16.11.1

@@ -19,9 +19,13 @@ alias g="command git"
 alias sc="source $HOME/.zshrc"
 alias brewin="command brew install"
 alias brewun="command brew uninstall"
+alias bunin="command bundle install"
+alias bunun="command bundle uninstall"
 alias whereare="builtin whence -sav"
 alias whichis="builtin whence -sv"
 alias em="emacs -nw ."
+alias rubofix="command rubocop -a"
+alias rubofast="command rubocop --parallel"
 
 #utilites for ruby playingaround
 function seed_ruby() {
