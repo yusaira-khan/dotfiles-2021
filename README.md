@@ -2,7 +2,8 @@
 
 ## nulogy specific setup
 ```shell
-stow asdf-global byobu git git-common intellij irb vim zsh
+stow --target=~ asdf-global byobu git git-common intellij irb vim zsh
+stow --target=~/.config/direnv direnv
 ```
 
 ## home setup
@@ -12,9 +13,9 @@ stow asdf-global byobu git-home git-common irb vim zsh
 
 ## to initialize
 ```shell
-mv ~/.stuff ~/.dotfiles/organized-dir/.stuff
+mv ~/.file ~/.dotfiles/organized-dir/.file
 cd ~/.dotfiles
-stow organized-dir
+stow --target=~ organized-dir
 ```
 
 ## todo
