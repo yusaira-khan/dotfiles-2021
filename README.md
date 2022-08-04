@@ -2,13 +2,15 @@
 
 ## nulogy specific setup
 ```shell
-stow --target=$HOME asdf-global byobu git git-common intellij irb vim zsh
+stow --target=$HOME asdf-global git git-common intellij irb vim zsh
 stow --target=$HOME/.config/direnv direnv
+stow --target=$HOME/.byobu byobu
 ```
 
 ## home setup
 ```shell
-stow --target=$HOME asdf-global byobu git-home git-common irb vim zsh
+stow --target=$HOME asdf-global git-home git-common irb vim zsh
+stow --target=$HOME/.byobu byobu
 ```
 
 ## to initialize
