@@ -30,8 +30,17 @@ alias rubofast="command rubocop --parallel"
 
 #utilites for ruby playingaround
 function seed_ruby() {
-    cp ~/.zsh-utilities/chunkys-dotfiles/.bin/.seed_ruby/* .
-    cp ~/.zsh-utilities/chunkys-dotfiles/.bin/.seed_ruby/.* .
+
+  SEED_DIR=~/.zsh-utilities/chunkys-dotfiles/.bin/.seed_ruby
+  if [[ -d $SEED_DIR ]]; then
+    cp $SEED_DIR/* .
+    cp $SEED_DIR/.* .
     cp -r ~/.tool-versions .
     bundle
+  fi
 }
+WORK_ALIASES=(auth.zsh)
+for w in "${WORK_ALIASES[@]}"
+do
+ source ~/.$w
+done
