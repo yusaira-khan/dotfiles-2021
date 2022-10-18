@@ -4,3 +4,6 @@
 [submodule "zsh/.zsh-utilities/chunkys-dotfiles"]
 	path = zsh/.zsh-utilities/chunkys-dotfiles
 	url = git@github.com:jchunky/dotfiles.git
+[submodule "work-alias"]
+	path = work-alias
+	url = git@github.com:nulogy/cpi-auth-alias.git
