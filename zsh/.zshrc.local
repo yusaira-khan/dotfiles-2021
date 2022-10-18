@@ -7,6 +7,7 @@ export NAME="Yusaira Khan"
 export GOPROXY=https://proxy.golang.org
 export ASDF_DIR=''
 source $(brew --prefix asdf)/asdf.sh
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 
 #zsh aliases
