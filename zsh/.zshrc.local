@@ -1,25 +1,39 @@
 #path config
-export HOME_PATH="$HOME/.serverless/bin:$HOME/.bin:$HOME/.local/bin"
-export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
-export PATH=$HOME_PATH:$PATH
-export NAME="Yusaira Khan"
-export GOPROXY=https://proxy.golang.org
-export ASDF_DIR=''
-source $(brew --prefix asdf)/asdf.sh
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
+export NAME="Yusaira Khan"
+export HOME_PATH="$HOME/.bin:$HOME/.local/bin"
+
+if is_work ; then
+    export HOME_PATH="$HOME/.serverless/bin:$HOME_PATH"
+    export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
+    export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+    export GOPROXY=https://proxy.golang.org
+
+    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+    alias brewin="command brew install"
+    alias brewun="command brew uninstall"
+
+    export ASDF_DIR=''
+    source $(brew --prefix asdf)/asdf.sh
+else
+    source $HOME/asdf.sh
+    alias aptin="command sudo apt install"
+    alias aptun="command sudo apt uninstall"
+fi
+
+export PATH=$HOME_PATH:$PATH
 
 #zsh aliases
 #stuff from grml
 source $HOME/.grml_utilities/primary.zsh
 source $HOME/.grml_utilities/simple_extract.zsh
 source $HOME/.grml_utilities/sll.zsh
+
 #aliases that for helping, separate from omz
 alias g="command git"
 alias sc="source $HOME/.zshrc"
-alias brewin="command brew install"
-alias brewun="command brew uninstall"
+
 alias bunin="command bundle install"
 alias bunun="command bundle uninstall"
 alias whereare="builtin whence -sav"
