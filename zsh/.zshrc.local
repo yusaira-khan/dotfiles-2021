@@ -23,12 +23,6 @@ fi
 
 export PATH=$HOME_PATH:$PATH
 
-#zsh aliases
-#stuff from grml
-source $HOME/.grml_utilities/primary.zsh
-source $HOME/.grml_utilities/simple_extract.zsh
-source $HOME/.grml_utilities/sll.zsh
-
 #aliases that for helping, separate from omz
 alias g="command git"
 alias sc="source $HOME/.zshrc"
@@ -53,12 +47,10 @@ function seed_ruby() {
   fi
 }
 
-if ! is_work ; then
-  WORK_ALIASES=(auth.zsh)
-  for w in "${WORK_ALIASES[@]}"
-  do
-   source ~/.$w
-  done
-else
-  alias ls="command lsd"
+
+#end stuff
+
+
+if ! is_intellij ; then
+alias ls="command lsd"
 fi
