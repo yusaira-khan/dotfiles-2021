@@ -17,7 +17,6 @@ if is_work ; then
     export ASDF_DIR=''
     source $(brew --prefix asdf)/asdf.sh
 else
-    source $HOME/asdf.sh
     alias aptin="command sudo apt install"
     alias aptun="command sudo apt uninstall"
 fi
@@ -53,8 +52,13 @@ function seed_ruby() {
     bundle
   fi
 }
-WORK_ALIASES=(auth.zsh)
-for w in "${WORK_ALIASES[@]}"
-do
- source ~/.$w
-done
+
+if ! is_work ; then
+  WORK_ALIASES=(auth.zsh)
+  for w in "${WORK_ALIASES[@]}"
+  do
+   source ~/.$w
+  done
+else
+  alias ls="command lsd"
+fi
