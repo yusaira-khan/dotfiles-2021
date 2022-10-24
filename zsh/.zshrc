@@ -7,7 +7,7 @@ function is_homelenovo() {
 }
 
 function is_work() {
-  if is_homelenovo then
+  if is_homelenovo; then
     return 1
   else
     return 0
@@ -25,6 +25,7 @@ function is_intellij() {
 
 #stuff from grml
 source $HOME/.grml_utilities/primary.zsh
+source $HOME/.grml_utilities/secondary.zsh
 source $HOME/.grml_utilities/simple_extract.zsh
 source $HOME/.grml_utilities/sll.zsh
 

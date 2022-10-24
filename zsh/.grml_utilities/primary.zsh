@@ -5,6 +5,7 @@ export CLICOLOR=1
 REPORTTIME=5
 
 
+
 setopt append_history
 setopt auto_cd
 setopt auto_pushd
@@ -89,10 +90,3 @@ function changed () {
     emulate -L zsh
     print -l -- *(c-${1:-1})
 }
-
-
-PS2='\`%_> '
-# selection prompt used within a select loop.
-PS3='?# '
-# the execution trace prompt (setopt xtrace). default: '+%N:%i>'
-PS4='+%N:%i:%_> '
