@@ -172,6 +172,18 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (defun my/kill-this-buffer ()
+    (interactive)
+    (kill-buffer (current-buffer)))
+  (evil-ex-define-cmd "q" 'my/kill-this-buffer)
+  (evil-ex-define-cmd "quit" 'evil-quit)
+  (evil-define-command my/evil-save-and-close (file &optional bang)
+    "Save the current buffer and close the window."
+    :repeat nil
+    (interactive "<f><!>")
+    (evil-write nil nil nil file bang)
+    (my/kill-this-buffer))
+  (evil-ex-define-cmd "x" 'my/evil-save-and-close)
 )
 
 
