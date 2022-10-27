@@ -48,9 +48,4 @@ function seed_ruby() {
 }
 
 
-#end stuff
-
-
-if ! is_intellij ; then
 alias ls="command lsd"
-fi

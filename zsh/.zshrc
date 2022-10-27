@@ -36,10 +36,6 @@ source $HOME/.zshrc.omz #oh my zshell
 
 source $HOME/.zshrc.local #all relevant user env variables in this file
 
-if is_work ; then
-  source ~/.auth.zsh
-fi
-
 #installed utility initialization after all the zshrc local zshrc stuff is done
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 eval "$(direnv hook zsh)"
