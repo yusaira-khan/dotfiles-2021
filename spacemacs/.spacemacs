@@ -171,19 +171,30 @@ dump."
 This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
-before packages are loaded."
+before packages are loaded.
+Keybindings here are modified from https://github.com/emacs-evil/evil/blob/master/evil-maps.el
+"
   (defun my/kill-this-buffer ()
     (interactive)
     (kill-buffer (current-buffer)))
-  (evil-ex-define-cmd "q" 'my/kill-this-buffer)
-  (evil-ex-define-cmd "quit" 'evil-quit)
-  (evil-define-command my/evil-save-and-close (file &optional bang)
+  (evil-define-command my/save-and-close (file &optional bang)
     "Save the current buffer and close the window."
     :repeat nil
     (interactive "<f><!>")
     (evil-write nil nil nil file bang)
     (my/kill-this-buffer))
-  (evil-ex-define-cmd "x" 'my/evil-save-and-close)
+
+  (evil-ex-define-cmd "q" 'my/kill-this-buffer)
+  (evil-ex-define-cmd "x" 'my/save-and-close)
+  (evil-ex-define-cmd "wq" 'my/save-and-close)
+
+  (evil-ex-define-cmd "qa[ll]" 'evil-quit)
+  (evil-ex-define-cmd "wqa[ll]" 'evil-save-and-close)
+  (evil-ex-define-cmd "xa[ll]" 'evil-save-and-close)
+
+; undefine recording evil/vim macro/keybind recording
+  (define-key evil-normal-state-map "q" nil) 
+  (define-key evil-normal-state-map "Q" nil) 
 )
 
 
