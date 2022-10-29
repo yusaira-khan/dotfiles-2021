@@ -2,14 +2,15 @@
 
 ## nulogy specific setup
 ```shell
-stow --target=$HOME asdf-global git git-common intellij irb vim zsh work-alias
+stow --target=$HOME asdf-global git-work git intellij irb vim zsh
 stow --target=$HOME/.config/direnv direnv
 stow --target=$HOME/.byobu byobu
 ```
 
 ## home setup
 ```shell
-stow --target=$HOME asdf-global git-home git-common irb vim zsh
+stow --target=$HOME asdf-global git-home git irb vim zsh spacemacs
+stow --target=$HOME/.config/direnv direnv
 stow --target=$HOME/.byobu byobu
 ```
 
