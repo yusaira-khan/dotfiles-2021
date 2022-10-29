@@ -1,25 +1,39 @@
 # Stow-ing and versioning dotfiles
 
-## nulogy specific setup
+## Work Setup
 ```shell
-stow --target=$HOME asdf-global git-work git intellij irb vim zsh
-stow --target=$HOME/.config/direnv direnv
+stow --target=$HOME git git-work asdf zsh vim intellij
+mkdir -p $HOME/.config/direnv && stow --target=$HOME/.config/direnv direnv
+```
+
+## Home Setup
+```shell
+stow --target=$HOME git git-home asdf zsh vim spacemacs
 stow --target=$HOME/.byobu byobu
 ```
 
-## home setup
+## Initialize
+To add file to the this repo (`$DOTFILES`), the following methods can be followed. Afterwards, the new file should be added to git.
+
+### Using --adopt
 ```shell
-stow --target=$HOME asdf-global git-home git irb vim zsh spacemacs
-stow --target=$HOME/.config/direnv direnv
-stow --target=$HOME/.byobu byobu
+cd $DOTFILES
+mdkir organized-dir
+touch organized-dir/.file
+stow  --adopt --target=$HOME organized-dir
 ```
 
-## to initialize
+### Old Way
 ```shell
-mv ~/.file ~/.dotfiles/organized-dir/.file
-cd ~/.dotfiles
+mv $HOME/.file $DOTFILES/organized-dir/.file
+cd $DOTFILES
 stow --target=$HOME organized-dir
 ```
 
+## Conflict
+If  `organized-dir/.file` is present in `$DOTFILES` and  `.file` in target (`$HOME`).
+- follow the `--adopt` instructions. 
+- use `git diff` to see the differences in git contents and file system contents
+
 ## todo
-- regularly update intellimacs
+- regularly update git modules
