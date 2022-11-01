@@ -194,7 +194,15 @@ Keybindings here are modified from https://github.com/emacs-evil/evil/blob/maste
 
 ; undefine recording evil/vim macro/keybind recording
   (define-key evil-normal-state-map "q" nil) 
-  (define-key evil-normal-state-map "Q" nil) 
+  (define-key evil-normal-state-map "Q" nil)
+
+  (projectile-register-project-type 'rust-cargo '("Cargo.toml")
+                                  :project-file "Cargo.toml"
+                                  :compile "cargo build"
+                                  :src-dir "src/"
+                                  :test-dir "tests/"
+                                  :test "cargo test --tests"
+                                  )
 )
 
 

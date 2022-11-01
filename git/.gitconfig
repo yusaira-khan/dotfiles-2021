@@ -62,6 +62,8 @@
     rh- = reset --hard
     rho- = !git reset --hard origin/$(git branch-name)
     rhb- = backone --hard
+    cfd = clean -fd
+    cofa = "fixup-add"
     cho- = !git fetch && git checkout $1 && git status
     plw- = !git pull --rebase && git unwip && git status
     ppwf = !git wip && git forcepush
