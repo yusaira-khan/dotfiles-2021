@@ -15,20 +15,32 @@
 [pull]
 	rebase = true
 [alias]
-    coma = "commit -am"
-    fixup = "commit --amend --no-edit"
-    fixup-add = "fixup -a"
-    amend = "co --amend"
+    # commit helpers
+    vcommit = "commit -v"
+    amend = "vcommit --amend"
     amend-add = "amend -a"
     reword = "amend"
+    fixup = "commit --amend --no-edit"
+    fixup-add = "fixup -a"
+
+    # branch helpers
     abbrev-name =  rev-parse --abbrev-ref
     branch-name =  abbrev-name HEAD
-    default-branch = !git abbrev-name $(git symbolic-ref HEAD)
-    newpush = "!git push -u origin $(git branch-name)"
+    default-branch-remote = abbrev-name origin/HEAD
+    default-branch-local = !basename $(git default-branch-remote)
+    delete-branch =  branch -D
+
+    #push helpers
+    push-to-new = "!git push -u origin $(git branch-name)"
     forcepush = "push --force-with-lease"
+
+    # log helpers
     lgnormal = log
 	lgpretty = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    filenames = show --name-only
+    refloglog = "!git log HEAD@{1}..HEAD@{0}"
+    show-filenames = show --name-only
+
+    # wip helpers
     wip = "!w() { \
       git add -A; \
       git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; \
@@ -36,38 +48,38 @@
     unwip = "!u(){\
       git log -n 1 | grep -q -c wip && git backone ; \
     }; u"
-    backone = reset HEAD~1
+
+    # reset helpers
+    maybe-back-one = reset HEAD~1
+    back-one = maybe-back-one --hard
+    reset-remote = !git reset --hard origin/$(git branch-name)
+    reset-main = !git reset --hard $(git default-branch-remote)
+
+    # aliases
     ah = "add ."
-    co = "commit -v"
     com = "commit -m"
+    coma = "commit -am"
     cof = "fixup"
     cofa = "fixup-add"
     cor = "reword"
-    coaa = "amend-add"
     ppf = "forcepush"
-    ppn = "newpush"
+    ppn = "push-to-new"
     pp = push
-    sh = show
-    shf = filenames
     st = status
     rf = reflog
-    br = branch
-    brd- = branch -D
     cho = checkout
     chb = checkout -b
-    rb = rebase -i
+    rbi = rebase -i
     rbc = rebase --continue
     rba = rebase --abort
-    st- = !git fetch && git status
     rh- = reset --hard
-    rho- = !git reset --hard origin/$(git branch-name)
-    rhb- = backone --hard
     cfd = clean -fd
-    cofa = "fixup-add"
-    cho- = !git fetch && git checkout $1 && git status
-    plw- = !git pull --rebase && git unwip && git status
-    ppwf = !git wip && git forcepush
-    chw = !git checkout $1 && git plw!
-    chm = !git checkout $(git default-branch) && git st-
-    huh = "!git log HEAD@{1}..HEAD@{0}"
+
+    # fetch helpers
+    new-status = !git fetch && git status
+    checkout-status = !git fetch && git checkout $1 && git status
+    pull-unwip = !git pull --rebase && git unwip && git status
+    wip-push = !git wip && git forcepush
+    checkout-unwip = !git checkout $1 && git plw!
+    checkout-default = !git checkout $(git default-branch-local) && git new-status
 
