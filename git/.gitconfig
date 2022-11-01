@@ -40,6 +40,12 @@
     refloglog = "!git log HEAD@{1}..HEAD@{0}"
     show-filenames = show --name-only
 
+    # reset helpers
+    maybe-back-one = reset HEAD~1
+    back-one = maybe-back-one --hard
+    reset-remote = !git reset --hard origin/$(git branch-name)
+    reset-main = !git reset --hard $(git default-branch-remote)
+
     # wip helpers
     wip = "!w() { \
       git add -A; \
@@ -49,11 +55,13 @@
       git log -n 1 | grep -q -c wip && git backone ; \
     }; u"
 
-    # reset helpers
-    maybe-back-one = reset HEAD~1
-    back-one = maybe-back-one --hard
-    reset-remote = !git reset --hard origin/$(git branch-name)
-    reset-main = !git reset --hard $(git default-branch-remote)
+    # fetch helpers
+    new-status = !git fetch && git status
+    checkout-status = !git fetch && git checkout $1 && git status
+    pull-unwip = !git pull --rebase && git unwip && git status
+    wip-push = !git wip && git forcepush
+    checkout-unwip = !git checkout $1 && git plw!
+    checkout-default = !git checkout $(git default-branch-local) && git new-status
 
     # aliases
     ah = "add ."
@@ -75,11 +83,4 @@
     rh- = reset --hard
     cfd = clean -fd
 
-    # fetch helpers
-    new-status = !git fetch && git status
-    checkout-status = !git fetch && git checkout $1 && git status
-    pull-unwip = !git pull --rebase && git unwip && git status
-    wip-push = !git wip && git forcepush
-    checkout-unwip = !git checkout $1 && git plw!
-    checkout-default = !git checkout $(git default-branch-local) && git new-status
-
+    
