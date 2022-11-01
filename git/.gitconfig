@@ -23,12 +23,19 @@
     fixup = "commit --amend --no-edit"
     fixup-add = "fixup -a"
 
+# status helpers
+    short-status = status -sb
+    diff-stat = !git --no-pager diff --compact-summary
+    diff-status = !echo "unstaged" && git diff-stat && echo "staged" && git diff-stat --cached && git short-status
+
 # branch helpers
     abbrev-name =  rev-parse --abbrev-ref
     branch-name =  abbrev-name HEAD
     default-branch-remote = abbrev-name origin/HEAD
     default-branch-local = !basename $(git default-branch-remote)
     delete-branch =  branch -D
+    pretty-branch =  branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    list-branch = !git --no-pager pretty-branch
 
 #push helpers
     push-to-new = "!git push -u origin $(git branch-name)"
@@ -37,11 +44,12 @@
 # log helpers
     prettylog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     refloglog = "!git log HEAD@{1}..HEAD@{0}"
+    last = log -1 HEAD --stat
     show-filenames = show --name-only
 
 # reset helpers
-    maybe-back-one = reset HEAD~1
-    back-one = maybe-back-one --hard
+    undo = reset HEAD~1
+    back-one = undo --hard
     reset-remote = !git reset --hard origin/$(git branch-name)
     reset-main = !git reset --hard $(git default-branch-remote)
 
@@ -55,9 +63,9 @@
     }; u"
 
 # fetch helpers
-    new-status = !git fetch && git status
-    checkout-status = !git fetch && git checkout $1 && git status
-    pull-unwip = !git pull --rebase && git unwip && git status
+    new-status = !git fetch && git short-status
+    checkout-status = !git fetch && git checkout $1 && git short-status
+    pull-unwip = !git pull --rebase && git unwip && git short-status
     wip-push = !git wip && git forcepush
     checkout-unwip = !git checkout $1 && git plw!
     checkout-default = !git checkout $(git default-branch-local) && git new-status
@@ -72,12 +80,18 @@
     ppf = "force-push"
     ppn = "push-to-new"
     pp = push
-    st = status
-    rf = reflog
     cho = checkout
     chb = checkout -b
     rbi = rebase -i
     rbc = rebase --continue
     rba = rebase --abort
     rh- = reset --hard
+    rs = reset --hard
     cfd = clean -fd
+    ll = log --oneline
+    plog = pretty-log
+    st = short-status
+    sts = status
+    dst = diff-status
+    sw = switch
+    rt = restore
