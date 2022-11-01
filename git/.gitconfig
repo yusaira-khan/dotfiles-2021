@@ -15,7 +15,7 @@
 [pull]
     rebase = true
 [alias]
-    # commit helpers
+# commit helpers
     vcommit = "commit -v"
     amend = "vcommit --amend"
     amend-add = "amend -a"
@@ -23,30 +23,29 @@
     fixup = "commit --amend --no-edit"
     fixup-add = "fixup -a"
 
-    # branch helpers
+# branch helpers
     abbrev-name =  rev-parse --abbrev-ref
     branch-name =  abbrev-name HEAD
     default-branch-remote = abbrev-name origin/HEAD
     default-branch-local = !basename $(git default-branch-remote)
     delete-branch =  branch -D
 
-    #push helpers
+#push helpers
     push-to-new = "!git push -u origin $(git branch-name)"
-    forcepush = "push --force-with-lease"
+    force-push = "push --force-with-lease"
 
-    # log helpers
-    lgnormal = log
-    lgpretty = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+# log helpers
+    prettylog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     refloglog = "!git log HEAD@{1}..HEAD@{0}"
     show-filenames = show --name-only
 
-    # reset helpers
+# reset helpers
     maybe-back-one = reset HEAD~1
     back-one = maybe-back-one --hard
     reset-remote = !git reset --hard origin/$(git branch-name)
     reset-main = !git reset --hard $(git default-branch-remote)
 
-    # wip helpers
+# wip helpers
     wip = "!w() {\
       git add -A; \
       git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; \
@@ -55,7 +54,7 @@
       git log -n 1 | grep -q -c wip && git backone ; \
     }; u"
 
-    # fetch helpers
+# fetch helpers
     new-status = !git fetch && git status
     checkout-status = !git fetch && git checkout $1 && git status
     pull-unwip = !git pull --rebase && git unwip && git status
@@ -63,14 +62,14 @@
     checkout-unwip = !git checkout $1 && git plw!
     checkout-default = !git checkout $(git default-branch-local) && git new-status
 
-    # smaller
+# smaller
     ah = "add ."
     com = "commit -m"
     coma = "commit -am"
     cof = "fixup"
     cofa = "fixup-add"
     cor = "reword"
-    ppf = "forcepush"
+    ppf = "force-push"
     ppn = "push-to-new"
     pp = push
     st = status
@@ -82,5 +81,3 @@
     rba = rebase --abort
     rh- = reset --hard
     cfd = clean -fd
-
-    
