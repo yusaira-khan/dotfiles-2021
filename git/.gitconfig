@@ -13,7 +13,7 @@
 [fetch]
     prune = true
 [pull]
-	rebase = true
+    rebase = true
 [alias]
     # commit helpers
     vcommit = "commit -v"
@@ -36,7 +36,7 @@
 
     # log helpers
     lgnormal = log
-	lgpretty = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lgpretty = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     refloglog = "!git log HEAD@{1}..HEAD@{0}"
     show-filenames = show --name-only
 
@@ -47,10 +47,10 @@
     reset-main = !git reset --hard $(git default-branch-remote)
 
     # wip helpers
-    wip = "!w() { \
+    wip = "!w() {\
       git add -A; \
       git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; \
-     }; w"
+    }; w"
     unwip = "!u(){\
       git log -n 1 | grep -q -c wip && git backone ; \
     }; u"
@@ -63,7 +63,7 @@
     checkout-unwip = !git checkout $1 && git plw!
     checkout-default = !git checkout $(git default-branch-local) && git new-status
 
-    # aliases
+    # smaller
     ah = "add ."
     com = "commit -m"
     coma = "commit -am"
