@@ -33,6 +33,7 @@
     branch-name =  abbrev-name HEAD
     default-branch-remote = abbrev-name origin/HEAD
     default-branch-local = !basename $(git default-branch-remote)
+    delete-remote-branch =  push -d origin
     delete-branch =  branch -D
     pretty-branch =  branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
     list-branch = !git --no-pager pretty-branch

@@ -5,8 +5,8 @@ source ~/.intellimacs/major.vim
 source ~/.intellimacs/hybrid.vim
 source ~/.intellimacs/whichkey.vim
 
-" My own vim commands
-nnoremap Y y$
+set clipboard = autoselect,exclude:cons\|linux
+
 
 " Comma for major mode
 nmap , <leader>m
