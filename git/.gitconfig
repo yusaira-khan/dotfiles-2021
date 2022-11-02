@@ -60,7 +60,7 @@
       git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; \
     }; w"
     unwip = "!u(){\
-      git log -n 1 | grep -q -c wip && git backone ; \
+      git log -n 1 | grep -q -c wip && git undo ; \
     }; u"
 
 # fetch helpers

@@ -32,7 +32,7 @@ This function should only modify configuration layer settings."
      react
      (javascript :variables javascript-backend 'lsp javascript-fmt-tool 'prettier javascript-import-tool 'import-js javascript-fmt-on-save t)
      )
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(disable-mouse)
 
    dotspacemacs-frozen-packages '()
 
@@ -184,6 +184,7 @@ Keybindings here are modified from https://github.com/emacs-evil/evil/blob/maste
     (evil-write nil nil nil file bang)
     (my/kill-this-buffer))
 
+; new behavior for q
   (evil-ex-define-cmd "q" 'my/kill-this-buffer)
   (evil-ex-define-cmd "x" 'my/save-and-close)
   (evil-ex-define-cmd "wq" 'my/save-and-close)
@@ -193,16 +194,8 @@ Keybindings here are modified from https://github.com/emacs-evil/evil/blob/maste
   (evil-ex-define-cmd "xa[ll]" 'evil-save-and-close)
 
 ; undefine recording evil/vim macro/keybind recording
-  (define-key evil-normal-state-map "q" nil) 
+  (define-key evil-normal-state-map "q" nil)
   (define-key evil-normal-state-map "Q" nil)
-
-  (projectile-register-project-type 'rust-cargo '("Cargo.toml")
-                                  :project-file "Cargo.toml"
-                                  :compile "cargo build"
-                                  :src-dir "src/"
-                                  :test-dir "tests/"
-                                  :test "cargo test --tests"
-                                  )
 )
 
 

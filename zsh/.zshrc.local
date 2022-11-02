@@ -19,6 +19,7 @@ if is_work ; then
 else
     alias aptin="command sudo apt install"
     alias aptun="command sudo apt uninstall"
+    alias emacs-term="TERM=xterm emacs -nw"
 fi
 
 export PATH=$HOME_PATH:$PATH
