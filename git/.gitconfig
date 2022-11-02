@@ -55,21 +55,22 @@
     reset-main = !git reset --hard $(git default-branch-remote)
 
 # wip helpers
+    wip-commit = commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"
     wip = "!w() {\
       git add -A; \
-      git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; \
+      git wip-commit; \
     }; w"
     unwip = "!u(){\
       git log -n 1 | grep -q -c wip && git undo ; \
     }; u"
 
 # fetch helpers
-    new-status = !git fetch && git short-status
+    status-fetch = !git fetch && git short-status
     checkout-status = !git fetch && git checkout $1 && git short-status
     pull-unwip = !git pull --rebase && git unwip && git short-status
     wip-push = !git wip && git forcepush
-    checkout-unwip = !git checkout $1 && git plw!
-    checkout-default = !git checkout $(git default-branch-local) && git new-status
+    checkout-unwip = !git checkout $1 && git pull-unwip
+    checkout-default = !git checkout $(git default-branch-local) && git status-fetch
 
 # smaller
     ah = "add ."
