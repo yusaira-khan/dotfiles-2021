@@ -23,6 +23,9 @@ function is_intellij() {
   fi
 }
 
+alias grep="command rg"
+alias ripgrep="command rg"
+
 #stuff from grml
 source $HOME/.grml_utilities/primary.zsh
 source $HOME/.grml_utilities/secondary.zsh

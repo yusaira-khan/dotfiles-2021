@@ -1,7 +1,7 @@
-#path config
+# path config
 
 export NAME="Yusaira Khan"
-export HOME_PATH="$HOME/.bin:$HOME/.local/bin"
+export HOME_PATH="$HOME/.bin"
 
 if is_work ; then
     export HOME_PATH="$HOME/.serverless/bin:$HOME_PATH"
@@ -9,34 +9,44 @@ if is_work ; then
     export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
     export GOPROXY=https://proxy.golang.org
 
-    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
     alias brewin="command brew install"
     alias brewun="command brew uninstall"
-
     export ASDF_DIR=''
     source $(brew --prefix asdf)/asdf.sh
+
+    alias cp="command gcp"
+    alias mcp="command cp"
+    alias rm="command grm"
+    alias mrm="command rm"
+    alias date="command gdate"
+    alias mdate="command gdate"
+    alias ln="command gln"
+    alias mln="command ln"
+    alias mv="command gmv"
+    alias mmv="command mv"
+
+    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 else
     alias aptin="command sudo apt install"
     alias aptun="command sudo apt uninstall"
     alias emacs-term="TERM=xterm emacs -nw"
+    alias spacemacs=emacs
 fi
-
 export PATH=$HOME_PATH:$PATH
 
-#aliases that for helping, separate from omz
+# aliases that for helping, separate from omz
+alias ls="command lsd"
 alias g="command git"
 alias sc="source $HOME/.zshrc"
+alias whereare="builtin whence -sav"
+alias whichis="builtin whence -sv"
 
 alias bunin="command bundle install"
 alias bunun="command bundle uninstall"
-alias whereare="builtin whence -sav"
-alias whichis="builtin whence -sv"
-alias em="emacs -nw ."
 alias rubofix="command rubocop -a"
 alias rubofast="command rubocop --parallel"
 
-#utilites for ruby playingaround
+# utilites for ruby playingaround
 function seed_ruby() {
 
   cp -r ~/.tool-versions .
@@ -47,6 +57,3 @@ function seed_ruby() {
     bundle
   fi
 }
-
-
-alias ls="command lsd"

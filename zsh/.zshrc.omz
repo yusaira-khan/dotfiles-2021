@@ -1,20 +1,10 @@
-#oh my zsh related stuff only.
-#to see original version, check $ZSH/templates
+#oh my zsh related stuff only. #to see original version, check $ZSH/templates
 
+export ZSH="$HOME/.oh-my-zsh" # Path to your oh-my-zsh installation.
+ZSH_THEME="robbyrussell" # Set name of the theme to load, See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# Path to your oh-my-zsh installation.
-
-
-export ZSH="$HOME/.oh-my-zsh"
-# Set name of the theme to load, See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-
-# Uncomment the following lines
-# to disable bi-weekly auto-update checks.
-# to automatically update without prompting.
-DISABLE_AUTO_UPDATE="true"
-DISABLE_UPDATE_PROMPT="true"
+DISABLE_AUTO_UPDATE="true" # to disable bi-weekly auto-update checks.
+DISABLE_UPDATE_PROMPT="true" # to automatically update without prompting.
 
 
 plugins=(asdf git autojump direnv golang zsh-autosuggestions last-working-dir)
