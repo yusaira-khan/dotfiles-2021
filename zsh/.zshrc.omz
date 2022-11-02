@@ -10,7 +10,7 @@ DISABLE_UPDATE_PROMPT="true" # to automatically update without prompting.
 plugins=(asdf git autojump direnv golang zsh-autosuggestions last-working-dir)
 
 if is_work ; then
-  plugins+=(nulogy copyfile copydir copybuffer)
+  plugins+=(nulogy copyfile copybuffer)
 else
   plugins+=()
 fi

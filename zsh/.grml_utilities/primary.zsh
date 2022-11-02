@@ -1,5 +1,4 @@
 typeset -ga ls_options
-ls_options+=( -G )
 ls_options+=( -v )
 export CLICOLOR=1
 REPORTTIME=5
@@ -34,30 +33,29 @@ function cl () {
 }
 
 
-
 #List files with colors ls [...])
-alias ls="command ls ${ls_options:+${ls_options[*]}}"
+alias ls="command lsd ${ls_options:+${ls_options[*]}}"
 # List all files, with colors ls [...])
-alias la="command ls -la ${ls_options:+${ls_options[*]}}"
+alias la="command lsd -la ${ls_options:+${ls_options[*]}}"
 #List files with long colored list, without dotfiles ls -l [...])
-alias ll="command ls -l ${ls_options:+${ls_options[*]}}"
+alias ll="command lsd -l ${ls_options:+${ls_options[*]}}"
 # List files with long colored list, human readable sizes ls -hAl [...])
-alias lh="command ls -hAl ${ls_options:+${ls_options[*]}}"
+alias lh="command lsd -hAl ${ls_options:+${ls_options[*]}}"
 # List files with long colored list, append qualifier to filenames ls -l [...]. / for directories, @ for symlinks
-alias l="command ls -l ${ls_options:+${ls_options[*]}}"
+alias l="command lsd -l ${ls_options:+${ls_options[*]}}"
 # Only show dot-directories
-alias lsdotdir='command ls -d .*(/)'
+alias lsdotdir='command lsd -d .*(/)'
 # Only show dot-files
-alias lsdotfiles='command ls -a .*(.)'
+alias lsdotfiles='command lsd -a .*(.)'
 # Display the ten biggest files
-alias lsbig="command ls -flh *(.OL[1,10])"
-alias lsnice="command ls -lSrah"
+alias lsbig="command lsd -flh *(.OL[1,10])"
+alias lsnice="command lsd -lSrah"
 # Display the ten newest files
-alias lsnew="command ls -rtlh *(D.om[1,10])"
+alias lsnew="command lsd -rtlh *(D.om[1,10])"
 # Display the ten oldest files
-alias lsold="command ls -rtlh *(D.Om[1,10])"
+alias lsold="command lsd -rtlh *(D.Om[1,10])"
 # Display the ten smallest files
-alias lssmall="command ls -Srl *(.oL[1,10])"
+alias lssmall="command lsd -Srl *(.oL[1,10])"
 
 # Create Directory and cd to it
 function mkcd () {

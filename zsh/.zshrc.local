@@ -18,12 +18,12 @@ if is_work ; then
     alias mcp="command cp"
     alias rm="command grm"
     alias mrm="command rm"
-    alias date="command gdate"
-    alias mdate="command gdate"
     alias ln="command gln"
     alias mln="command ln"
     alias mv="command gmv"
     alias mmv="command mv"
+    alias date="command gdate"
+    alias mdate="command gdate"
 
     export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 else

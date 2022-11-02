@@ -66,6 +66,7 @@
 
 # fetch helpers
     status-fetch = !git fetch && git short-status
+    fetch-status = status-fetch
     checkout-status = !git fetch && git checkout $1 && git short-status
     pull-unwip = !git pull --rebase && git unwip && git short-status
     wip-push = !git wip && git forcepush
