@@ -14,14 +14,19 @@
     prune = true
 [pull]
     rebase = true
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [alias]
 # commit helpers
-    vcommit = "commit -v"
-    amend = "vcommit --amend"
-    amend-add = "amend -a"
-    reword = "amend"
-    fixup = "commit --amend --no-edit"
-    fixup-add = "fixup -a"
+    vcommit = commit -v
+    amend = vcommit --amend
+    amend-add = amend -a
+    reword = amend
+    fixup = commit --amend --no-edit
+    fixup-add = fixup -a
 
 # status helpers
     short-status = status -sb
@@ -39,12 +44,12 @@
     list-branch = !git --no-pager pretty-branch
 
 #push helpers
-    push-to-new = "!git push -u origin $(git branch-name)"
-    force-push = "push --force-with-lease"
+    push-to-new = !git push -u origin $(git branch-name)
+    force-push = push --force-with-lease
 
 # log helpers
     prettylog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    refloglog = "!git log HEAD@{1}..HEAD@{0}"
+    refloglog = !git log HEAD@{1}..HEAD@{0}
     last = log -1 HEAD --stat
     show-filenames = show --name-only
 
@@ -55,13 +60,14 @@
     reset-main = !git reset --hard $(git default-branch-remote)
 
 # wip helpers
-    wip-commit = commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"
+    wcommit = commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"
     wip = "!w() {\
       git add -A; \
-      git wip-commit; \
+      git wcommit; \
     }; w"
     unwip = "!u(){\
-      git log -n 1 | grep -q -c wip && git undo ; \
+      git log -n 1 | grep -q -c wip && \
+      git undo ; \
     }; u"
 
 # fetch helpers
@@ -74,14 +80,14 @@
     checkout-default = !git checkout $(git default-branch-local) && git status-fetch
 
 # smaller
-    ah = "add ."
-    com = "commit -m"
-    coma = "commit -am"
-    cof = "fixup"
-    cofa = "fixup-add"
-    cor = "reword"
-    ppf = "force-push"
-    ppn = "push-to-new"
+    ah = add .
+    com = commit -m
+    coma = commit -am
+    cof = fixup
+    cofa = fixup-add
+    cor = reword
+    ppf = force-push
+    ppn = push-to-new
     pp = push
     cho = checkout
     chb = checkout -b
