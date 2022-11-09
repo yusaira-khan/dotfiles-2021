@@ -37,6 +37,7 @@ export PATH=$HOME_PATH:$PATH
 # aliases that for helping, separate from omz
 alias ls="command lsd"
 alias g="command git"
+alias gm="git default-branch-remote"
 alias sc="source $HOME/.zshrc"
 alias whereare="builtin whence -sav"
 alias whichis="builtin whence -sv"

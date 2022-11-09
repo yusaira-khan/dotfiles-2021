@@ -59,14 +59,16 @@
 # reset helpers
     undo = reset HEAD~1
     back-one = undo --hard
+    ugh = reset HEAD
+    ughh = ugh --hard
     reset-remote = !git reset --hard origin/$(git branch-name)
     reset-main = !git reset --hard $(git default-branch-remote)
 
 # wip helpers
-    wcommit = commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"
+    wcommit =commit --no-verify --no-gpg-sign
     wip = "!w() {\
       git add -A; \
-      git wcommit; \
+      git wcommit -m "--wip-- [skip ci]"; \
     }; w"
     unwip = "!u(){\
       git log -n 1 | grep -q -c wip && \
@@ -80,7 +82,8 @@
     pull-unwip = !git pull --rebase && git unwip && git short-status
     wip-push = !git wip && git forcepush
     checkout-unwip = !git checkout $1 && git pull-unwip
-    checkout-default = !git checkout $(git default-branch-local) && git status-fetch
+    checkout-main = !git checkout $(git default-branch-local) && git status-fetch
+    rebase-main = !git fetch && git rebase $(git default-branch-remote)
 
 # smaller
     ah = add .
@@ -95,10 +98,11 @@
     cho = checkout
     chb = checkout -b
     rbi = rebase -i
+    rbm = rebase-main
     rbc = rebase --continue
     rba = rebase --abort
     rh- = reset --hard
-    rs = reset --hard
+    rs = reset
     cfd = clean -fd
     ll = log --oneline
     plog = pretty-log
@@ -107,3 +111,4 @@
     dst = diff-status
     sw = switch
     rt = restore
+    m = default-branch-remote
