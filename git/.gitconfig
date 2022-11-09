@@ -41,6 +41,7 @@
     delete-remote-branch =  push -d origin
     delete-branch =  branch -D
     pretty-branch =  branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    delete-local-branches = !git --no-pager branch --no-merged | xargs git branch -d
     list-branch = !git --no-pager pretty-branch
     pretty-tag =  tag --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(taggerdate:relative), %(taggerdate:short)) [%(taggername)]' --sort=-taggerdate
     list-tag = !git --no-pager pretty-tag
