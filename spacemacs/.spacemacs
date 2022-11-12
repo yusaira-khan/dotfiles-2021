@@ -32,7 +32,7 @@ This function should only modify configuration layer settings."
      react
      (javascript :variables javascript-backend 'lsp javascript-fmt-tool 'prettier javascript-import-tool 'import-js javascript-fmt-on-save t)
      )
-   dotspacemacs-additional-packages '(disable-mouse)
+   dotspacemacs-additional-packages '()
 
    dotspacemacs-frozen-packages '()
 
