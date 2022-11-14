@@ -42,8 +42,8 @@ alias sc="source $HOME/.zshrc"
 alias whereare="builtin whence -sav"
 alias whichis="builtin whence -sv"
 
-alias bunin="command bundle install"
-alias bunun="command bundle uninstall"
+alias gemin="command gem install"
+alias gemun="command gem uninstall"
 alias rubofix="command rubocop -a"
 alias rubofast="command rubocop --parallel"
 

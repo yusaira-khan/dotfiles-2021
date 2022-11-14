@@ -68,7 +68,7 @@
     wcommit =commit --no-verify --no-gpg-sign
     wip = "!w() {\
       git add -A; \
-      git wcommit -m "--wip-- [skip ci]"; \
+      git wcommit -m \"--wip-- [skip ci]\"; \
     }; w"
     unwip = "!u(){\
       git log -n 1 | grep -q -c wip && \
@@ -84,6 +84,9 @@
     checkout-unwip = !git checkout $1 && git pull-unwip
     checkout-main = !git checkout $(git default-branch-local) && git status-fetch
     rebase-main = !git fetch && git rebase $(git default-branch-remote)
+
+# stash helpers
+    unstash = stash pop
 
 # smaller
     ah = add .
@@ -112,3 +115,5 @@
     sw = switch
     rt = restore
     m = default-branch-remote
+    sh = stash
+    uh = unstash
