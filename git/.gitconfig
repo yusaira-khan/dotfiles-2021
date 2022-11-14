@@ -115,5 +115,3 @@
     sw = switch
     rt = restore
     m = default-branch-remote
-    sh = stash
-    uh = unstash
