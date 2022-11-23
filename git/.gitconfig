@@ -115,3 +115,5 @@
     sw = switch
     rt = restore
     m = default-branch-remote
+[init]
+	defaultBranch = main
