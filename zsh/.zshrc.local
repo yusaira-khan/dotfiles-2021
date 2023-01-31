@@ -12,7 +12,7 @@ if is_work ; then
     alias brewin="command brew install"
     alias brewun="command brew uninstall"
     export ASDF_DIR=''
-    source $(brew --prefix asdf)/asdf.sh
+    source $(brew --prefix asdf)/libexec/asdf.sh
 
     alias cp="command gcp"
     alias mcp="command cp"

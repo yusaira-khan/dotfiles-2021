@@ -42,6 +42,7 @@
     delete-branch =  branch -D
     pretty-branch =  branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
     delete-local-branches = !git --no-pager branch --no-merged | xargs git branch -d
+    delete-local-branches-force = !git --no-pager branch --no-merged | xargs git branch -D
     list-branch = !git --no-pager pretty-branch
     pretty-tag =  tag --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(taggerdate:relative), %(taggerdate:short)) [%(taggername)]' --sort=-taggerdate
     list-tag = !git --no-pager pretty-tag
@@ -54,21 +55,22 @@
     prettylog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     refloglog = !git log HEAD@{1}..HEAD@{0}
     last = log -1 HEAD --stat
-    show-filenames = show --name-only
+    show-filenames = !git --no-pager show --name-only
 
 # reset helpers
     undo = reset HEAD~1
-    back-one = undo --hard
-    ugh = reset HEAD
-    ughh = ugh --hard
+    set-undo = undo --hard
+    reset-head = reset HEAD
+    set-head = reset-head --hard
     reset-remote = !git reset --hard origin/$(git branch-name)
     reset-main = !git reset --hard $(git default-branch-remote)
 
 # wip helpers
-    wcommit =commit --no-verify --no-gpg-sign
+    #wip_commit = "!wc() { git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; }; wc"
+
     wip = "!w() {\
       git add -A; \
-      git wcommit -m \"--wip-- [skip ci]\"; \
+      git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\" ; \
     }; w"
     unwip = "!u(){\
       git log -n 1 | grep -q -c wip && \
@@ -105,9 +107,10 @@
     rbc = rebase --continue
     rba = rebase --abort
     rh- = reset --hard
+    rs- = reset --hard
     rs = reset
     cfd = clean -fd
-    ll = log --oneline
+    l1 = log --oneline
     plog = pretty-log
     st = short-status
     sts = status
@@ -115,5 +118,6 @@
     sw = switch
     rt = restore
     m = default-branch-remote
+
 [init]
 	defaultBranch = main
