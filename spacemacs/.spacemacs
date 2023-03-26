@@ -27,10 +27,11 @@ This function should only modify configuration layer settings."
      lsp
      emacs-lisp
      ruby
-     rust
+     (rust :variables rust-format-on-save t)
      (typescript :variables typescript-backend 'lsp typescript-linter 'eslint typescript-fmt-tool 'prettier typescript-fmt-on-save t)
      react
      (javascript :variables javascript-backend 'lsp javascript-fmt-tool 'prettier javascript-import-tool 'import-js javascript-fmt-on-save t)
+     (python :variables python-formatter black python-format-on-save t)
      )
    dotspacemacs-additional-packages '()
 
