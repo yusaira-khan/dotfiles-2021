@@ -7,7 +7,7 @@ DISABLE_AUTO_UPDATE="true" # to disable bi-weekly auto-update checks.
 DISABLE_UPDATE_PROMPT="true" # to automatically update without prompting.
 
 
-plugins=(asdf git autojump direnv zsh-autosuggestions last-working-dir)
+plugins=(asdf git autojump zsh-autosuggestions last-working-dir)
 
 if is_work ; then
   plugins+=(nulogy copyfile copybuffer)
