@@ -7,6 +7,7 @@ if is_work ; then
     export HOME_PATH="$HOME/.serverless/bin:$HOME_PATH"
     export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
     export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+    export PATH="/usr/local/texlive/2023/bin/universal-darwin:$PATH"
     export GOPROXY=https://proxy.golang.org
 
     alias brewin="command brew install"
