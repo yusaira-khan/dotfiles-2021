@@ -6,7 +6,7 @@ export HOME_PATH="$HOME/.bin"
 if is_work ; then
     export HOME_PATH="$HOME/.serverless/bin:$HOME_PATH"
     export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
-    export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+    export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
     export PATH="/usr/local/texlive/2023/bin/universal-darwin:$PATH"
     export GOPROXY=https://proxy.golang.org
 
@@ -15,6 +15,7 @@ if is_work ; then
     export ASDF_DIR=''
     source $(brew --prefix asdf)/libexec/asdf.sh
 
+    alias rubocop="command bundle exec rubocop"
     alias cp="command gcp"
     alias mcp="command cp"
     alias rm="command grm"
@@ -26,7 +27,7 @@ if is_work ; then
     alias date="command gdate"
     alias mdate="command gdate"
 
-    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+#    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 else
     alias aptin="command sudo apt install"
     alias aptun="command sudo apt uninstall"
