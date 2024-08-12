@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 #oh my zsh related stuff only. #to see original version, check $ZSH/templates
 
 export ZSH="$HOME/.oh-my-zsh" # Path to your oh-my-zsh installation.

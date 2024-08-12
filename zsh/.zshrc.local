@@ -1,13 +1,11 @@
+#!/bin/zsh
 # path config
 
 export NAME="Yusaira Khan"
 export HOME_PATH="$HOME/.bin"
 
 if is_work ; then
-    export HOME_PATH="$HOME/.serverless/bin:$HOME_PATH"
-    export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
-    export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
-    export PATH="/usr/local/texlive/2023/bin/universal-darwin:$PATH"
+    export PATH="$(brew --prefix asdf)/bin:$PATH"
     export GOPROXY=https://proxy.golang.org
 
     alias brewin="command brew install"

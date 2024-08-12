@@ -33,6 +33,11 @@ source $HOME/.grml_utilities/simple_extract.zsh
 source $HOME/.grml_utilities/sll.zsh
 
 
+if is_work ; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  source $HOME/.zshrc.private
+fi
+
 export FZF_BASE=/usr/local/bin
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $HOME/.zshrc.omz #oh my zshell
@@ -42,9 +47,6 @@ source $HOME/.zshrc.local #all relevant user env variables in this file
 #installed utility initialization after all the zshrc local zshrc stuff is done
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-if is_work ; then
-  source $HOME/.zshrc.private
-fi
 
 function border() {
   echo "----------------------------------"
@@ -72,20 +74,4 @@ function docker_clean() {
 }
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-function conda_setup() {
-__conda_setup="$('/home/yusairak/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/yusairak/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/yusairak/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/yusairak/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-}
 eval "$(direnv hook zsh)"
