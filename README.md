@@ -2,6 +2,7 @@
 
 ## Work Setup
 ```shell
+git submodule update --init --recursive
 stow --target=$HOME git git-work asdf zsh vim intellij
 mkdir -p $HOME/.config/direnv && stow --target=$HOME/.config/direnv direnv
 ```
