@@ -50,6 +50,7 @@
 #push helpers
     push-to-new = !git push -u origin $(git branch-name)
     force-push = push --force-with-lease
+    set-origin-branch = !git branch --set-upstream-to=origin/$(git branch-name) $(git branch-name)
 
 # log helpers
     prettylog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

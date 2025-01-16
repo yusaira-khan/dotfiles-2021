@@ -23,13 +23,26 @@ function is_intellij() {
   fi
 }
 
-alias grep="command rg"
-alias ripgrep="command rg"
+# utilites for ruby playingaround
+function seed_ruby() {
+
+  cp -r ~/.tool-versions .
+  SEED_DIR=~/.zsh-utilities/chunkys-dotfiles/.bin/.seed_ruby
+  if [[ -d $SEED_DIR ]]; then
+    cp $SEED_DIR/* .
+    cp $SEED_DIR/.* .
+    bundle
+  fi
+}
+
+
+source $HOME/.zsh-utilities/misc.sh
+source $HOME/.zsh-utilities/github.sh
+
 
 #stuff from grml
 source $HOME/.grml_utilities/primary.zsh
 source $HOME/.grml_utilities/secondary.zsh
-source $HOME/.grml_utilities/simple_extract.zsh
 source $HOME/.grml_utilities/sll.zsh
 
 
@@ -46,32 +59,5 @@ source $HOME/.zshrc.local #all relevant user env variables in this file
 
 #installed utility initialization after all the zshrc local zshrc stuff is done
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-
-function border() {
-  echo "----------------------------------"
-  echo
-}
-
-function docker_clean() {
-  echo "Stopping the following containers:"
-  docker ps
-  docker stop $(docker ps -q)
-  border
-
-  echo "Removing the following containers:"
-  docker ps -a
-  docker rm $(docker ps -a -q)
-  border
-
-  echo "Removing volumes"
-  docker volume rm $(docker volume ls -q)
-  border
-
-  echo "Pruning System"
-  docker system prune -f
-  border
-}
-
 
 eval "$(direnv hook zsh)"

@@ -3,9 +3,12 @@
 
 export NAME="Yusaira Khan"
 export HOME_PATH="$HOME/.bin"
+alias grep="command rg"
+alias ripgrep="command rg"
 
 if is_work ; then
     export PATH="$(brew --prefix asdf)/bin:$PATH"
+    export PATH="$(brew --prefix postgresql@15)/bin:$PATH"
     export GOPROXY=https://proxy.golang.org
 
     alias brewin="command brew install"
@@ -32,7 +35,6 @@ else
     alias emacs-term="TERM=xterm emacs -nw"
     alias spacemacs=emacs
 fi
-export PATH=$HOME_PATH:$PATH
 
 # aliases that for helping, separate from omz
 alias ls="command lsd"
@@ -47,14 +49,10 @@ alias gemun="command gem uninstall"
 alias rubofix="command rubocop -a"
 alias rubofast="command rubocop --parallel"
 
-# utilites for ruby playingaround
-function seed_ruby() {
 
-  cp -r ~/.tool-versions .
-  SEED_DIR=~/.zsh-utilities/chunkys-dotfiles/.bin/.seed_ruby
-  if [[ -d $SEED_DIR ]]; then
-    cp $SEED_DIR/* .
-    cp $SEED_DIR/.* .
-    bundle
-  fi
-}
+
+export PATH=$HOME_PATH:$PATH
+
+
+
+
