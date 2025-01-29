@@ -20,36 +20,20 @@
     process = git-lfs filter-process
     required = true
 [alias]
-# commit helpers
-    vcommit = commit -v
-    amend = vcommit --amend
-    amend-add = amend -a
-    reword = amend
-    fixup = commit --amend --no-edit
-    fixup-add = fixup -a
-
 # status helpers
-    short-status = status -sb
     diff-stat = !git --no-pager diff --compact-summary
-    diff-status = !echo "unstaged" && git diff-stat && echo "staged" && git diff-stat --cached && git short-status
 
 # branch helpers
     abbrev-name =  rev-parse --abbrev-ref
     branch-name =  abbrev-name HEAD
     default-branch-remote = abbrev-name origin/HEAD
     default-branch-local = !basename $(git default-branch-remote)
-    delete-remote-branch =  push -d origin
-    delete-branch =  branch -D
     pretty-branch =  branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
-    delete-local-branches = !git --no-pager branch --no-merged | xargs git branch -d
-    delete-local-branches-force = !git --no-pager branch --no-merged | xargs git branch -D
     list-branch = !git --no-pager pretty-branch
     pretty-tag =  tag --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(taggerdate:relative), %(taggerdate:short)) [%(taggername)]' --sort=-taggerdate
     list-tag = !git --no-pager pretty-tag
 
 #push helpers
-    push-to-new = !git push -u origin $(git branch-name)
-    force-push = push --force-with-lease
     set-origin-branch = !git branch --set-upstream-to=origin/$(git branch-name) $(git branch-name)
 
 # log helpers
@@ -58,67 +42,30 @@
     last = log -1 HEAD --stat
     show-filenames = !git --no-pager show --name-only
 
-# reset helpers
-    undo = reset HEAD~1
-    set-undo = undo --hard
-    reset-head = reset HEAD
-    set-head = reset-head --hard
-    reset-remote = !git reset --hard origin/$(git branch-name)
-    reset-main = !git reset --hard $(git default-branch-remote)
-
-# wip helpers
-    #wip_commit = "!wc() { git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\"; }; wc"
-
-    wip = "!w() {\
-      git add -A; \
-      git commit --no-verify --no-gpg-sign -m \"--wip-- [skip ci]\" ; \
-    }; w"
-    unwip = "!u(){\
-      git log -n 1 | grep -q -c wip && \
-      git undo ; \
-    }; u"
-
 # fetch helpers
-    status-fetch = !git fetch && git short-status
-    fetch-status = status-fetch
-    checkout-status = !git fetch && git checkout $1 && git short-status
-    pull-unwip = !git pull --rebase && git unwip && git short-status
-    wip-push = !git wip && git forcepush
-    checkout-unwip = !git checkout $1 && git pull-unwip
-    checkout-main = !git checkout $(git default-branch-local) && git status-fetch
     rebase-main = !git fetch && git rebase $(git default-branch-remote)
+    rbm- = rebase-main
 
-# stash helpers
-    unstash = stash pop
+# old aliases
+    err = "!f() {\
+       printf \"\tuse $1\n\";\
+       exit -1 ; \
+    }; f"
 
-# smaller
-    ah = add .
-    com = commit -m
-    coma = commit -am
-    cof = fixup
-    cofa = fixup-add
-    cor = reword
-    ppf = force-push
-    ppn = push-to-new
-    pp = push
-    cho = checkout
-    chb = checkout -b
-    rbi = rebase -i
-    rbm = rebase-main
-    rbc = rebase --continue
-    rba = rebase --abort
-    rh- = reset --hard
-    rs- = reset --hard
-    rs = reset
-    cfd = clean -fd
-    l1 = log --oneline
-    plog = pretty-log
-    st = short-status
-    sts = status
-    dst = diff-status
-    sw = switch
-    rt = restore
-    m = default-branch-remote
+    com  = !git err "gcmsg"
+    coma = !git err "gcam"
+    cof  = !git err "gcn!"
+    cofa = !git err "gcan!"
+    cor  = !git err "gc!"
+    ppf  = !git err "gpf"
+    ppn  = !git err "gpsup"
+    pp   = !git err "gp"
+    cho  = !git err "gco"
+    chb  = !git err "gcb"
+    rh-  = !git err "grhh"
+    rs-  = !git err "grhh"
+    rs   = !git err "grh"
+    st   = !git err "gss"
 
 [init]
 	defaultBranch = main
