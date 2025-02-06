@@ -37,7 +37,7 @@ function seed_ruby() {
 
 
 source $HOME/.zsh-utilities/misc.sh
-source $HOME/.zsh-utilities/github.sh
+source $HOME/.zsh-utilities/git-functions.sh
 
 
 #stuff from grml

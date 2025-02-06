@@ -27,6 +27,7 @@ if is_work ; then
     alias mmv="command mv"
     alias date="command gdate"
     alias mdate="command gdate"
+    alias foreman="command overmind"
 
 #    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 else

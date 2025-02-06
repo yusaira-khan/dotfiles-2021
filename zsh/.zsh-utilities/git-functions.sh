@@ -7,14 +7,19 @@ git_current_branch_body () {
 }
 
 create_pr () {
-  suffix=""
+  set -x
+  s_flag=""
+  s_arg=""
   if [[ -f pull_request_template.md ]]; then
-    suffix="-T pull_request_template.md"
+    s_flag="-F"
+    s_arg=pull_request_template.md
   else
-    suffix="--body \"\""
+    s_flag="--body"
+    s_arg=""
   fi
 
-  gh pr create --title "$(git_current_ticket_number): $(git_current_branch_body)" $suffix
+  gh pr create --title "$(git_current_ticket_number): $(git_current_branch_body)" $s_flag "$s_arg"
+  set +x
 }
 
 view_pr () {
