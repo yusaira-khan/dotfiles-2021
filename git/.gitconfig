@@ -2,10 +2,12 @@
   path = ~/.user.gitconfig
 [push]
     default = simple
+    autoSetupRemote = true
 [remote "origin"]
     push = HEAD
 [branch]
     autosetupmerge = true
+    sort = -committerdate
 [color]
     branch = auto
     diff = auto
@@ -19,6 +21,11 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+[column]
+    ui = auto
+[rerere]
+    enabled = true
+    autoUpdate = true
 [alias]
 # status helpers
     diff-stat = !git --no-pager diff --compact-summary
