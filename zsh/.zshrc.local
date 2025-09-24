@@ -26,7 +26,7 @@ if is_work ; then
     alias mv="command gmv"
     alias mmv="command mv"
     alias date="command gdate"
-    alias mdate="command gdate"
+    alias mdate="command date"
     alias foreman="command overmind"
 
 #    export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -47,8 +47,9 @@ alias whichis="builtin whence -sv"
 
 alias gemin="command gem install"
 alias gemun="command gem uninstall"
-alias rubofix="command rubocop -a"
-alias rubofast="command rubocop --parallel"
+alias rubofix="rubocop -a"
+alias rubofiX="rubocop -A"
+alias rubofast="rubocop --parallel"
 
 
 

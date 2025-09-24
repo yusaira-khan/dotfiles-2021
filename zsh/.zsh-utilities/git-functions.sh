@@ -1,5 +1,5 @@
 git_current_ticket_number () {
-  git rev-parse --abbrev-ref HEAD | gsed -r '1s/^(.*-[[:digit:]]+)-.*/\1/'
+  git rev-parse --abbrev-ref HEAD | cut -d'-' -f -2
 }
 
 git_current_branch_body () {
@@ -8,17 +8,20 @@ git_current_branch_body () {
 
 create_pr () {
   set -x
-  s_flag=""
+
+  s_flag="--body"
   s_arg=""
   if [[ -f pull_request_template.md ]]; then
     s_flag="-F"
     s_arg=pull_request_template.md
-  else
-    s_flag="--body"
-    s_arg=""
   fi
 
-  gh pr create --title "$(git_current_ticket_number): $(git_current_branch_body)" $s_flag "$s_arg"
+  d_flag=""
+  if [[ $1 == "--draft" || $1 == "-d" ]]; then
+    d_flag="-d"
+  fi
+
+  gh pr create --title "$(git_current_ticket_number): $(git_current_branch_body)" $d_flag $s_flag "$s_arg"
   set +x
 }
 
