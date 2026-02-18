@@ -1253,7 +1253,7 @@ function inplaceMkDirs () {
         zle end-of-line
     fi
 }
-'
+
 zle -N inplaceMkDirs
 
 #v1# set number of lines to display per page

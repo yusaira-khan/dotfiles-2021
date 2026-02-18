@@ -48,9 +48,13 @@ alias whichis="builtin whence -sv"
 alias gemin="command gem install"
 alias gemun="command gem uninstall"
 alias rubofix="rubocop -a"
-alias rubofiX="rubocop -A"
+alias Rubofix="rubocop -A"
 alias rubofast="rubocop --parallel"
-
+alias cd-"cd -"
+alias gc-="git checkout -"
+alias ga.="git add ."
+alias sc="source $HOME/.zshrc"
+alias greflog="echo use grf"
 
 
 export PATH=$HOME_PATH:$PATH
