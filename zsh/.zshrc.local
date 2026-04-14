@@ -3,18 +3,17 @@
 
 export NAME="Yusaira Khan"
 export HOME_PATH="$HOME/.bin"
+export HOME_PATH="$HOME/.local/bin"
+
 alias grep="command rg"
 alias ripgrep="command rg"
 
 if is_work ; then
-    export PATH="$(brew --prefix asdf)/bin:$PATH"
     export PATH="$(brew --prefix postgresql@15)/bin:$PATH"
     export GOPROXY=https://proxy.golang.org
 
     alias brewin="command brew install"
     alias brewun="command brew uninstall"
-    export ASDF_DIR=''
-    source $(brew --prefix asdf)/libexec/asdf.sh
 
     alias rubocop="command bundle exec rubocop"
     alias cp="command gcp"

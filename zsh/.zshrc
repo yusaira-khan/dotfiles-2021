@@ -60,7 +60,7 @@ source $HOME/.zshrc.local #all relevant user env variables in this file
 #installed utility initialization after all the zshrc local zshrc stuff is done
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-eval "$(direnv hook zsh)"
+eval "$(mise activate zsh)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/yusairak/.rd/bin:$PATH"
